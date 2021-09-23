@@ -374,6 +374,11 @@ open class BaseNotificationBanner: UIView {
                 queuePosition: queuePosition
             )
         } else {
+            guard bannerPositionFrame != nil else {
+                remove();
+                return
+            }
+            
             self.frame = bannerPositionFrame.startFrame
 
             if let parentViewController = parentViewController {
